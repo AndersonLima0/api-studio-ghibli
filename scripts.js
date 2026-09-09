@@ -57,13 +57,10 @@ container.setAttribute("class", "container"); //definindo os atributos
 app.appendChild(logo);
 app.appendChild(container);
 
-fetch("http://localhost:3000/films", {
-  method: "GET",
-  headers: { "Content-Type": "application/json" },
-})
+fetch("./db.json")
   .then((resp) => resp.json())
   .then((data) => {
-    data.map((movie) => {
+    data.films.map((movie) => {
       //cria uma div com uma classe div
       const card = document.createElement("div");
       card.setAttribute("class", "card");
